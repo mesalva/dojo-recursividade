@@ -37,4 +37,22 @@ describe('RecursiveList', () => {
       ]
     })).toEqual(["some-import-1", "some-import-2", "some-import-3"]);
   });
+
+  test('readme sample', () => {
+    expect(extractImports({
+      "children": [
+        {
+          "import": "some-import-1",
+          "object": {
+            "import": "some-import-2",
+            "children": [
+              {
+                "import": "some-import-3"
+              }
+            ]
+          }
+        }
+      ]
+    })).toEqual(["some-import-1", "some-import-2", "some-import-3"]);
+  })
 });

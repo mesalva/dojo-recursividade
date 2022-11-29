@@ -47,4 +47,27 @@ class RecursiveReplaceTest < Minitest::Test
       RecursiveReplace.new({ "any_object": { "any_array": [{ "field": "%{variable}" }] } }).replace(variable: "value")
     )
   end
+
+  def rest_readme
+    # skip
+    assert_equal(
+      {
+        "name": "10",
+        "any_object": {
+          "any_array": [
+            { "value": "20" },
+            "mesalva.com/30"
+          ]
+        }
+      },
+    RecursiveReplace.new({
+                           "name": "%{var_1}",
+                           "any_object": {
+                             "any_array": [
+                               { "value": "%{var_2}" },
+                               "mesalva.com/%{var_3}"
+                             ]
+                           }
+                         }).replace(var_1: 10, var_2: 20, var_3: 30))
+  end
 end
