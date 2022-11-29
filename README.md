@@ -4,7 +4,7 @@ Neste exercício solucionaremos 2 problemas de recursividade, um em javascript, 
 
 ## Problema 1
 
-Dado um objeto complexto, com diversos a possibilidade de ter diversos "imports" em diferentes
+Dado um objeto complexo, com diversos, a possibilidade de ter diversos "imports" em diferentes
 níveis deste objeto, como no exemplo abaixo:
 
 ```json

@@ -1,11 +1,11 @@
-import { extractImports } from './recursive-list';
+import { extractImports } from "./recursive-list";
 
-describe('RecursiveList', () => {
-  test('simple', () => {
+describe("RecursiveList", () => {
+  test("simple", () => {
     expect(extractImports({ "import": "some-import" })).toEqual(["some-import"]);
   });
 
-  test('inside children', () => {
+  test("inside children", () => {
     expect(extractImports({
       "children": [
         { "import": "some-import" }
@@ -13,17 +13,19 @@ describe('RecursiveList', () => {
     })).toEqual(["some-import"]);
   });
 
-  test('complex', () => {
+  test("complex", () => {
     expect(extractImports({
       "children": [
-        { "object": {
+        {
+          "object": {
             "import": "some-import"
-          } }
+          }
+        }
       ]
     })).toEqual(["some-import"]);
   });
 
-  test('complex with multiple imports', () => {
+  test("complex with multiple imports", () => {
     expect(extractImports({
       "children": [
         {
@@ -33,12 +35,13 @@ describe('RecursiveList', () => {
             "children": [
               { "import": "some-import-3" }
             ]
-          } }
+          }
+        }
       ]
     })).toEqual(["some-import-1", "some-import-2", "some-import-3"]);
   });
 
-  test('readme sample', () => {
+  test("readme sample", () => {
     expect(extractImports({
       "children": [
         {
